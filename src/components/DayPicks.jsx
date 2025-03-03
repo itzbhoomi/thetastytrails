@@ -68,6 +68,7 @@ function DayPicks() {
             <h1 className='text-3xl text-center mb-6'><b>Today's Tasty Picks <br></br> Top 5 recipes of {daysOfWeek[today]}! </b></h1>
 
             {/* Recipes Grid */}
+            
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {dishesToDisplay.map((dish) => (
             <div key={dish.idMeal} className="recipe-card text-center cursor-pointer" onClick={() => handleDishClick(dish)}>
