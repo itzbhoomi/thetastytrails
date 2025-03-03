@@ -6,9 +6,7 @@ const Footer = () => {
 <footer className="bg-transparent">
   <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
     <div className="lg:flex lg:items-start lg:gap-8">
-      <div className="text-teal-600">
-       <img src='Logo.png' className='h-18 w-36'></img>
-      </div>
+      
 
       <div className="mt-8 grid grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16">
         <div className="col-span-2">
