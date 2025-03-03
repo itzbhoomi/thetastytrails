@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import DayPicks from "./components/DayPicks";
 import Footer from "./components/Footer";
 import RecipesPage from "./components/RecipesPage"; // New component
+import CookingTipsPage from "./components/CookingTipsPage";
 import "./fonts.css";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         />
         {/* Recipes Route */}
         <Route path="/recipes" element={<RecipesPage />} />
+        <Route path="/cooking-tips" element={<CookingTipsPage/>}></Route>
       </Routes>
     </Router>
   );

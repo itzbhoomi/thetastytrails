@@ -12,16 +12,13 @@ export default function TopNav() {
   const [searchResults, setSearchResults] = useState([]);
   const [selectedDish, setSelectedDish] = useState(null);
   const [hasSearched, setHasSearched] = useState(false);
-  const [loading, setLoading] = useState(false); // New loading state
   const navigate = useNavigate();
 
   const handleSearch = async () => {
     setHasSearched(true);
-    setLoading(true); // Start loading
     if (searchQuery.trim() === "") {
       setSearchResults([]);
       setSelectedDish(null);
-      setLoading(false); // Stop loading for empty query
       return;
     }
 
@@ -44,7 +41,6 @@ export default function TopNav() {
       }
     }
     setSearchResults(results);
-    setLoading(false); // Stop loading once results are fetched
   };
 
   const handleKeyPress = (e) => {
@@ -58,7 +54,6 @@ export default function TopNav() {
     setSearchResults([]);
     setSelectedDish(null);
     setHasSearched(false);
-    setLoading(false); // Ensure loading is off when clearing
   };
 
   const handleDishClick = (dish) => {
@@ -69,22 +64,27 @@ export default function TopNav() {
     navigate("/recipes");
   };
 
+  const handleCookingTipsClick = () => {
+    navigate("/cooking-tips");
+  };
+
   return (
     <div className="bg-[#ff7f7f] w-full relative pt-4">
       <div className="flex justify-between items-center relative px-2 sm:px-4 md:px-8 py-0 h-[80px] sm:h-[100px] md:h-[160px]">
         <div className="flex items-center">
-          <img src="Logo.png" alt="Logo" className="h-[70px] w-[70px] sm:h-[80px] sm:w-[80px] md:h-[170px] md:w-[170px]" />
+          <img src="Logo.png" alt="Logo" className="h-[70px] w-[70px] top-0 sm:h-[80px] sm:w-[80px] md:h-[170px] md:w-[170px] " />
         </div>
         <h1 className="hidden md:block top-0 font-['Elsie'] text-3xl sm:text-4xl md:text-5xl absolute left-1/2 transform -translate-x-1/2">
           The Tasty Trails
         </h1>
+       
         <h1 className="md:hidden font-['Elsie'] text-2xl sm:text-3xl">The Tasty Trails</h1>
         <button
           className="md:hidden focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? <X size={10} /> : <Menu size={10} />}
         </button>
         <div className="hidden md:flex items-center space-x-2 md:space-x-4">
           <select
@@ -106,7 +106,7 @@ export default function TopNav() {
           {searchQuery.length > 0 && (
             <button
               onClick={handleClearSearch}
-              className="font-['Elsie'] bg-[#FFDAB9] w-full sm:w-[90px] h-[30px] rounded-full transition duration-300 hover:scale-110 text-sm"
+              className="font-['Elsie'] bg-[#FFDAB9] w-[30px] sm:w-[90px] h-[30px] rounded-full transition duration-300 hover:scale-110 text-sm"
             >
               Clear
             </button>
@@ -118,7 +118,10 @@ export default function TopNav() {
             >
               Recipes
             </button>
-            <button className="font-['Elsie'] bg-[#FFDAB9] w-full sm:w-[90px] lg:w-[120px] h-[30px] rounded-full transition duration-300 hover:scale-110 text-sm">
+            <button
+              onClick={handleCookingTipsClick}
+              className="font-['Elsie'] bg-[#FFDAB9] w-full sm:w-[90px] lg:w-[120px] h-[30px] rounded-full transition duration-300 hover:scale-110 text-sm"
+            >
               Cooking Tips
             </button>
             <button className="font-['Elsie'] bg-[#FFDAB9] w-full sm:w-[90px] lg:w-[120px] h-[30px] rounded-full transition duration-300 hover:scale-110 text-sm">
@@ -165,7 +168,10 @@ export default function TopNav() {
               >
                 Recipes
               </button>
-              <button className="font-['Elsie'] bg-[#FFDAB9] w-full h-[30px] rounded-full transition duration-300 hover:scale-105 text-sm">
+              <button
+                onClick={handleCookingTipsClick}
+                className="font-['Elsie'] bg-[#FFDAB9] w-full h-[30px] rounded-full transition duration-300 hover:scale-105 text-sm"
+              >
                 Cooking Tips
               </button>
               <button className="font-['Elsie'] bg-[#FFDAB9] w-full h-[30px] rounded-full transition duration-300 hover:scale-105 text-sm">
@@ -179,12 +185,7 @@ export default function TopNav() {
         </div>
       )}
 
-      {/* Search Results with Loading */}
-      {hasSearched && loading ? (
-        <div className="justify-center w-full p-4 sm:p-6 md:p-10 mx-auto">
-          <p className="text-center text-gray-600">Loading...</p>
-        </div>
-      ) : hasSearched && searchResults.length === 0 ? (
+      {hasSearched && searchResults.length === 0 ? (
         <div className="justify-center w-full p-4 sm:p-6 md:p-10 mx-auto">
           <p className="text-sm text-gray-600 mb-4">Oops! 0 results found! Please make sure you've entered the correct spelling</p>
         </div>
@@ -210,14 +211,15 @@ export default function TopNav() {
         </div>
       ) : null}
 
+      {/* Detailed Recipe Modal */}
       {selectedDish && (
-        <div className="fixed inset-0 flex items-center justify-center bg-transparent bg-opacity-50 z-50">
-          <div className="bg-red-200 p-4 sm:p-6 rounded-lg w-full sm:max-w-md md:max-w-lg min-w-[280px] h-auto max-h-[90vh] shadow-lg overflow-y-auto pr-0">
+        <div className="fixed top-30 left-15 w-3/4 h-5/6 mx-auto bg-opacity-50 overflow-y-auto justify-center z-50">
+          <div className="bg-red-200 p-6 rounded-lg max-w-2xl shadow-lg mx-auto my-auto overflow-y-auto">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">{selectedDish.strMeal}</h2>
             <img
               src={selectedDish.strMealThumb}
               alt={selectedDish.strMeal}
-              className="w-full h-48 sm:h-64 md:h-80 rounded-lg mx-auto mb-4"
+              className="w-100 h-80 rounded-lg mx-auto"
             />
             <p className="mt-4 text-sm sm:text-base">{selectedDish.strInstructions}</p>
             <button
