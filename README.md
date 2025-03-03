@@ -1,4 +1,4 @@
-# Recipe Website
+# The Tasty Trails
 
 ## 📌 Overview
 Welcome to my first ReactJS-based website! This recipe website features an extensive collection of over 100 dishes across various categories. Users can explore recipes, check out the top 5 recipes of the day, and view detailed instructions by clicking on a recipe card.
