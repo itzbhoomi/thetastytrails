@@ -192,7 +192,7 @@ export default function TopNav() {
       {/* Detailed Recipe Modal */}
       {selectedDish && (
         <div className="fixed top-30 left-15 w-3/4 h-5/6 mx-auto bg-opacity-50 overflow-y-auto justify-center z-50cd ">
-          <div className="bg-red-200 p-6 rounded-lg max-w-2xl shadow-lg mx-auto my-auto overflow-y-auto">
+          <div className="bg-red-200 p-6 rounded-lg max-w-2xl shadow-lg mx-auto my-auto overflow-y-auto z-50">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">{selectedDish.strMeal}</h2>
             <img
               src={selectedDish.strMealThumb}
