@@ -45,20 +45,20 @@ const TotoAI = () => {
         placeholder="Enter your question..."
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
-        className="w-full max-w-2xl p-3 border border-gray-300 rounded-lg text-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400"
+        className="w-full max-w-2xl p-3 border border-gray-300 rounded-full text-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400"
       />
 
       {/* Generate button */}
       <br />
       <button
         onClick={generateAnswer}
-        className="mt-4 px-6 py-2 bg-red-400 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-red-500 transition"
+        className="mt-4 px-6 py-2 bg-red-400 text-white text-lg font-semibold rounded-full shadow-md hover:bg-red-500 transition"
       >
         Generate
       </button>
 
       {/* Response Section */}
-      <div className="max-w-2xl mx-auto mt-5 p-4 border border-gray-300 rounded-lg bg-gray-50 shadow-md text-left">
+      <div className="max-w-2xl mx-auto mt-5 p-4 border border-gray-300 rounded-4xl bg-gray-50 shadow-md text-left">
         <strong className="text-lg">Response:</strong>
         <p className={`mt-2 whitespace-pre-wrap break-words ${loading ? "text-gray-400" : "text-black"}`}>
           {loading ? "Loading..." : responseText}

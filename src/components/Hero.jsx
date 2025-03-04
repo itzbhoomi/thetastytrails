@@ -54,31 +54,31 @@ export default function Hero() {
       image: "pizza.jpg",
       title: "Craving for a Pizza??",
       description:
-        "Golden crust, gooey cheese, and a burst of flavors in every bite—just what your cravings ordered! 🍕✨ Why just dream about it when you can make it? Click to unlock the recipe and bring your pizza fantasies to life! Let me know if you want any tweaks! 🚀",
+        "Golden crust, gooey cheese, and a burst of flavors in every bite—just what your cravings ordered! 🍕✨ Why just dream about it when you can make it? Search to unlock the recipe and bring your pizza fantasies to life! Let me know if you want any tweaks! 🚀",
     },
     {
       image: "spring_roll.jpg",
       title: "Unwrap a Little Joy",
       description:
-        "Crispy on the outside, packed with flavor on the inside—these spring rolls are a crunchy little bite of heaven! 🥢✨ Why wait? Click to unwrap the recipe and roll up some magic in your kitchen! Let me know if you need any changes! 🚀",
+        "Crispy on the outside, packed with flavor on the inside—these spring rolls are a crunchy little bite of heaven! 🥢✨ Why wait? Search to unwrap the recipe and roll up some magic in your kitchen! Let me know if you need any changes! 🚀",
     },
     {
       image: "sushi.jpg",
       title: "Sea-ze the sushi!",
       description:
-        "A little rice, a little roll, and a whole lot of yum! Whether you're a chopstick pro or a fork fanatic, this sushi is too good to resist. Click for the recipe and roll into deliciousness!",
+        "A little rice, a little roll, and a whole lot of yum! Whether you're a chopstick pro or a fork fanatic, this sushi is too good to resist. Search for the recipe and roll into deliciousness!",
     },
     {
       image: "dessert.jpg",
       title: "Sweet Temptations",
       description:
-        "Crispy on the outside, packed with flavor on the inside—these spring rolls are a crunchy little bite of heaven! 🥢✨ Why wait? Click to unwrap the recipe and roll up some magic in your kitchen! Let me know if you need any changes! 🚀",
+        "Fluffy layers, rich chocolate drizzles, and a melt-in-your-mouth delight—pure dessert heaven! 🍫✨ Why just crave it when you can create it? Search for the recipe and turn your sweet dreams into reality!",
     },
     {
       image: "vadapav.jpg",
       title: "Street Food Magic",
       description:
-        "Crispy on the outside, packed with flavor on the inside—these spring rolls are a crunchy little bite of heaven! 🥢✨ Why wait? Click to unwrap the recipe and roll up some magic in your kitchen! Let me know if you need any changes! 🚀",
+        "Sizzling spices, bold flavors, and that irresistible street-side charm—your ultimate foodie adventure awaits! 🌮🔥 Why just crave it when you can cook it? Search for the recipe and bring the streets to your kitchen!",
     },
   ]
 
@@ -97,9 +97,7 @@ export default function Hero() {
                     <div className="relative z-10 text-white h-full overflow-y-auto">
                       <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-2">{slide.title}</h1>
                       <h2 className="text-sm sm:text-base md:text-lg font-bold mb-4">{slide.description}</h2>
-                      <button className="bg-white text-black opacity-100 w-full sm:w-[200px] md:w-[300px] h-[30px] rounded-lg mt-2 sm:mt-4">
-                        <b>Click me for recipe</b>
-                      </button>
+                      
                     </div>
                   </span>
                 </button>
