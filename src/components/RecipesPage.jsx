@@ -1,4 +1,3 @@
-// RecipesPage.jsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -30,6 +29,15 @@ export default function RecipesPage() {
     fetchRecipes();
   }, []);
 
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (selectedDish) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [selectedDish]);
+
   const handleDishClick = (dish) => {
     setSelectedDish(dish);
   };
@@ -38,12 +46,11 @@ export default function RecipesPage() {
     <div className="flex flex-col min-h-screen">
       <TopNav />
       <main className="flex-grow justify-center w-7/8 p-4 sm:p-6 md:p-10 mx-auto">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl text-center mb-6">
-          <b>Explore Delicious Recipes</b>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl text-center mb-6 font-bold">
+          Explore Delicious Recipes
         </h1>
         {loading ? (
           <p className="text-center text-gray-600">Loading recipes...</p>
-          
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {recipes.map((dish) => (
@@ -64,22 +71,34 @@ export default function RecipesPage() {
         )}
       </main>
       <Footer />
+
+      {/* Modal */}
       {selectedDish && (
-        <div className="fixed inset-0 flex items-center justify-center bg-transparent bg-opacity-50 z-50 shadow-black">
-          <div className="bg-red-200 p-4 sm:p-6 rounded-lg w-full sm:max-w-md md:max-w-6/10 min-w-[280px] h-auto max-h-[90vh] shadow-lg-black overflow-y-auto pr-0">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">{selectedDish.strMeal}</h2>
+        <div className="fixed inset-0 bg-transparent bg-opacity-50 backdrop-blur-md flex items-center justify-center">
+          <div className="bg-red-200 p-4 sm:p-6 rounded-lg w-11/12 sm:max-w-md md:max-w-4xl h-auto max-h-[90vh] shadow-lg overflow-y-auto relative">
+            
+            {/* Title & Close Button */}
+            <div className="relative">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">{selectedDish.strMeal}</h2>
+              <button
+                className="absolute top-0 right-0 h-10 w-10 bg-red-500 text-white rounded-full flex items-center justify-center"
+                onClick={() => setSelectedDish(null)}
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Dish Image */}
             <img
               src={selectedDish.strMealThumb}
               alt={selectedDish.strMeal}
               className="w-full h-48 sm:h-64 md:h-80 rounded-lg mx-auto mb-4"
             />
-            <p className="mt-4 text-sm sm:text-base">{selectedDish.strInstructions}</p>
-            <button
-              className="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg w-full text-sm sm:text-base"
-              onClick={() => setSelectedDish(null)}
-            >
-              Close
-            </button>
+
+            {/* Instructions (Scrollable) */}
+            <div className="max-h-60 overflow-y-auto mt-4 pr-2">
+              <p className="text-sm sm:text-base">{selectedDish.strInstructions}</p>
+            </div>
           </div>
         </div>
       )}
