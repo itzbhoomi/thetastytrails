@@ -9,12 +9,14 @@ Welcome to my first ReactJS-based website! This recipe website features an exten
 - 🔍 **Interactive Recipe Cards** with step-by-step instructions
 - 📱 **Responsive Design** for seamless experience on all devices
 - ⚡ **Fast and Dynamic UI** powered by ReactJS
+- 🤖 **TotoAI Chatbot** powered by GeminiAPI to assist with recipes and cooking tips
 
 ## 🛠️ Technologies Used
 - **ReactJS** - Frontend framework
 - **React Router** - For seamless navigation
 - **TailwindCSS** - Styling
 - **API / JSON Data** - Recipe storage and retrieval
+- **GeminiAPI** - AI-powered chatbot integration
 
 ## 📷 Screenshots
 ![image](https://github.com/user-attachments/assets/c023bf30-e8bf-455e-8d85-fd3468c9a13f)
@@ -23,14 +25,11 @@ Welcome to my first ReactJS-based website! This recipe website features an exten
 ![image](https://github.com/user-attachments/assets/2b6e0b0c-bb78-454a-a52c-1dd69841e22a)
 ![image](https://github.com/user-attachments/assets/d0830978-bd2b-427f-a4c1-020d9afb1145)
 
-
-
-
 ## 🤝 Contributing
 Feel free to contribute by submitting issues or pull requests!
-
 
 🔗 **Live Demo:** [(https://thetastytrails.vercel.app/)]
 
 Happy Cooking! 🍽️
+
 
