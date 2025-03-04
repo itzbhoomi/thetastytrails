@@ -1,5 +1,3 @@
-// TopNav.jsx
-"use client";
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -68,11 +66,15 @@ export default function TopNav() {
     navigate("/cooking-tips");
   };
 
+  const handleAskAIClick = () => {
+    navigate("/TotoAI");
+  };
+
   return (
     <div className="bg-[#ff7f7f] w-full relative pt-4">
       <div className="flex justify-between items-center relative px-2 sm:px-4 md:px-8 py-0 h-[80px] sm:h-[100px] md:h-[160px]">
         <div className="flex items-center">
-          <img src="Logo.png" alt="Logo" className="h-[70px] w-[70px] top-0 sm:h-[80px] sm:w-[80px] md:h-[170px] md:w-[170px] " />
+          <img src="Logo.png" alt="Logo" className="h-[70px] w-[70px] top-0 sm:h-[80px] sm:w-[80px] md:min-h-[170px] md:min-w-[170px] " />
         </div>
         <h1 className="hidden md:block top-0 font-['Elsie'] text-3xl sm:text-4xl md:text-5xl absolute left-1/2 transform -translate-x-1/2">
           The Tasty Trails
@@ -124,7 +126,9 @@ export default function TopNav() {
             >
               Cooking Tips
             </button>
-            <button className="font-['Elsie'] bg-[#FFDAB9] w-full sm:w-[90px] lg:w-[120px] h-[30px] rounded-full transition duration-300 hover:scale-110 text-sm">
+            <button 
+            onClick={handleAskAIClick}
+            className="font-['Elsie'] bg-[#FFDAB9] w-full sm:w-[90px] lg:w-[120px] h-[30px] rounded-full transition duration-300 hover:scale-110 text-sm">
               Ask AI
             </button>
             <button className="font-['Elsie'] bg-[#FFDAB9] w-full sm:w-[90px] lg:w-[120px] h-[30px] rounded-full transition duration-300 hover:scale-110 text-sm">
@@ -174,7 +178,9 @@ export default function TopNav() {
               >
                 Cooking Tips
               </button>
-              <button className="font-['Elsie'] bg-[#FFDAB9] w-full h-[30px] rounded-full transition duration-300 hover:scale-105 text-sm">
+              <button
+              onClick={handleAskAIClick}
+              className="font-['Elsie'] bg-[#FFDAB9] w-full h-[30px] rounded-full transition duration-300 hover:scale-105 text-sm">
                 Ask AI
               </button>
               <button className="font-['Elsie'] bg-[#FFDAB9] w-full h-[30px] rounded-full transition duration-300 hover:scale-105 text-sm">

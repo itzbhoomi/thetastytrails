@@ -10,7 +10,7 @@ export default function CookingTipsPage() {
       
       <p className="pt-5 px-20">
       <h1> <b>Top Cooking Tips for Culinary Success</b></h1>
-      <ol>
+      <ol class="list-disc">
         <li>Always preheat your oven for even baking—5-10 minutes ensures consistent results for cakes and breads.</li>
         <li>Use a pinch of salt in sweet dishes to enhance flavors, balancing sweetness subtly.</li>
         <li>Keep knives sharp; a dull knife is more dangerous and tears food instead of cutting cleanly.</li>
